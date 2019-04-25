@@ -1,0 +1,18 @@
+Here we will learn:
+--->how to create custom annotations [Class level(@DefineController, @DefineComponent), Field level(@AutoInject), Method level(@HandlerMethod)].
+--->how to locate classes available in a particular package.
+--->if any of them is annotated with proper annotation [custom annotation], we will identify them.
+	
+Processing:
+--->Load the available classes from a particular package
+
+--->Find all the annotated classes (@DefineController, @DefineComponent) in a given package
+--->Create a Map of objects with key as class name (fully qualified name) and value as object [com.Student ---> student]
+
+--->Scan the objects in Map and find the annotated fields (@AutoInject)
+--->Inject the proper object from the Map to that particular field, if object is not present set it to null;
+
+--->Scan the objects in Map for finding the annotated methods (@HandlerMethod)
+--->If it is a proper match then check for accepted parameter(s)
+--->Inject the proper parameter to that method
+--->Invoke the method for execution and get the response
